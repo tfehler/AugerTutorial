@@ -8,7 +8,8 @@ dependencies = [
     "pandas",
     "matplotlib",
     "jupyterlab",
-    "jupytext",
+    "jupytext", # Notebooks as plain text files (Git support)
+    "python-lsp-server[all]",
 ]
 
 [tool.uv]
