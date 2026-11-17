@@ -268,10 +268,10 @@ print(2 != 2)   # '!=' Gibt True oder False zurück, je nachdem, ob beide Seiten
 
 x = 3
 y = 2
-print(x < y) # '<=' Gibt True oder False zurück, je nachdem, ob x kleiner als y ist oder nicht.
-print(x > y) # '<=' Gibt True oder False zurück, je nachdem, ob x kleiner als y ist oder nicht.
+print(x < y) # '<' Gibt True oder False zurück, je nachdem, ob x kleiner als y ist oder nicht.
+print(x > y) # '>' Gibt True oder False zurück, je nachdem, ob x größer als y ist oder nicht.
 print(x <= y) # '<=' Gibt True oder False zurück, je nachdem, ob x kleiner oder gleich y ist oder nicht.
-print(x >= y) # '<=' Gibt True oder False zurück, je nachdem, ob x kleiner oder gleich y ist oder nicht.
+print(x >= y) # '>=' Gibt True oder False zurück, je nachdem, ob x größer oder gleich y ist oder nicht.
 
 # %% [markdown] id="3X0jgI0e5KPm"
 # ### **if** (wenn, Bedingung)
@@ -420,7 +420,7 @@ for i in range(len(liste_teilchen)):
       break # Verwende eine 'for'-Schleife, und die Variable 'i' entspricht der Position des Elements.
 
 print(i)
-print(liste_partikel[i])
+print(liste_teilchen[i])
 
 # %% [markdown] id="xtTdLUuslmVB"
 # Erstellt einen Code, der:
@@ -472,8 +472,9 @@ for i in range(-2,3):
 # Definieren wir eine Funktion, die zwei Zahlen entgegennimmt und sie addiert.
 def addition(input_1, input_2): # Diese Zeile definiert die Funktion, sie führt sie NICHT aus.
   output = input_1 + input_2
-  #Die Eingabevariablen existieren nur innerhalb der Funktion und werden gelöscht, sobald diese endet.
-  return output #Die einzige Variable, die überlebt, ist der Output.
+  # Die Eingabevariablen existieren nur innerhalb der Funktion.
+
+  return output # Die einzige Variable, die überlebt, ist der Output.
 
 input_1 = 5
 input_2 = 3
@@ -563,9 +564,9 @@ print(directory)
 # %% id="CHiZoAS3sbqt"
 import time as t     #Ich importiere die Funktionsbibliothek für die Zeitverarbeitung.
 
-startzeit = time.time()          # Nimm die Zeit der Maschine.
-time.sleep(1)                         # Warte 1 Sekunde
-endzeit = time.time()            # Nimm die Zeit der Maschine.
+startzeit = t.time()          # Nimm die Zeit der Maschine.
+t.sleep(1)                         # Warte 1 Sekunde
+endzeit = t.time()            # Nimm die Zeit der Maschine.
 print(endzeit - startzeit)  # Verstrichene Zeit in Sekunden
 
 # %% [markdown] id="o45gycvH3v0i"
@@ -626,7 +627,7 @@ print(random_vector)
 import matplotlib.pylab as plt
 
 # %% id="8-jpoVHq3v2k"
-x = np.arange(100) # Vektor von Ganzzahlen zwischen 0 und 100
+x = np.arange(100) # Vektor von Ganzzahlen zwischen 0 und 99
 y = x**2           # Ich quadriere jedes Element.
 plt.plot(x, y)     # x-y-Diagramm
 plt.show()
@@ -712,14 +713,14 @@ def y(x):
 def y(x):
   if np.floor(x)-x<0:
     print('X is not an integer.')
-    result = NaN
+    result = np.nan
   else:
-      if x==0:
-        result = 1
-      else:
-        result=1
-        for i in range(1,x+1,1):
-            result = result*i
+    if x==0:
+      result = 1
+    else:
+      result=1
+      for i in range(1,x+1,1):
+          result = result*i
     return(result)
 #Hinweis: floor(x) liefert den ganzzahligen Anteil von x.
 
@@ -842,7 +843,7 @@ num_points = 20
 # Note: all positive, non-zero data
 xdata = np.linspace(1.1, 10.1, num_points)
 ydata = powerlaw(xdata, 10.0, -2.0)     # simulated perfect data
-yerr = 0.2 * ydata                      # simulated errors (10%)
+yerr = 0.2 * ydata                      # simulated errors (20%)
 
 ydata += np.random.randn(num_points) * yerr       # simulated noisy data
 
